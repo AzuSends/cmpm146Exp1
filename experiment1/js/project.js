@@ -52,6 +52,7 @@ const fillers = {
 
 const template = `You $action towards the $enemy $attack with $weapon in hand! You strike true, dealing a lethal blow.
 
+
 Your foe $defeat. You $victory blood running down your body.
 `;
 
@@ -75,10 +76,9 @@ function generate() {
   }
 
   /* global box */
-  box.innerText = story;
-}
+  $("#box").text(story);}
 
 /* global clicker */
-clicker.onclick = generate;
+$("#clicker").click(generate);
 
 generate();
