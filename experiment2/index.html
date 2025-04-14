@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<!-- This title is used for tabs and bookmarks -->
-	<title>Experiment X - Subject/Topic</title>
+	<title>Experiment 2 - Living Impressions</title>
 
 	<!-- Use UTF character set, a good idea with any webpage -->
 	<meta charset="UTF-8" />
@@ -15,56 +16,81 @@
 
 	<!-- Load jQuery library -->
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-        crossorigin="anonymous"></script>
+		integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 	<!-- Load p5.js library -->
 	<script src="https://cdn.jsdelivr.net/npm/p5@1.9.2/lib/p5.js"></script>
 
 	<!-- Link to javascript files - DEFER waits until all elements are rendered -->
-    <script type="text/javascript" src="../js/site.js" DEFER></script>
+	<script type="text/javascript" src="../js/site.js" DEFER></script>
 	<!-- Use me for a JavaScript OOP Project -->
 	<script type="text/javascript" src="./js/project.js" DEFER></script>
 	<!-- Use me for a p5.js project -->
 	<script type="text/javascript" src="./js/sketch.js" DEFER></script>
 </head>
+
 <body>
 	<!-- Style this page by changing the CSS in ../css/site.css or css/experiment.css -->
 	<main id="content">
 		<section>
 
-			<h1>Experiment X - Subject/Topic</h1>
+			<h1>Experiment 2 - Living Impressions</h1>
 
 			<div class="minor-section">
 				<div id="canvas-container">
 					<!-- canvas will be added here -->
 				</div>
-                <div class="fullscreen-box">
-                    <button id="fullscreen">Fullscreen</button>
-                </div>
+
+				<div class="fullscreen-box">
+					<button id="fullscreen">Fullscreen</button>
+				</div>
 			</div>
 
 			<div class="minor-section">
 				<h2>Description</h2>
-				<p>What are you trying to acomplish with this experiment?</p>
+				<p>My main good was to approximate all the shapes and color of my sample image. I also wanted to try to
+					capture the unique colors near the top of the image, the flowers, and the mountain range in
+					the background.</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Technical</h2>
-				<p>Describe in detail what you did technically and how it works?</p>
+				<p>The simplest part is the two sloping side mountains which are given a random starting height and
+					simply slope to the bottom of the screen and the grass landscape which is just a rect.
+					The flowers were made by mapping noise onto the grass landscape which created clumps of ellipses
+					which approximate the flowers. They get smaller the further from the bottom of the screen they are
+					to simulate distance.
+					The clouds are just some ellipses that scroll in a loop across the top of the screen.
+					Finally is the mountain range. I simply loop over all the x values from left the right and feed my
+					seed multiplied by my x value at every point into the noise function.
+					Depending on the output I would either increase or decrease the y value then plot a vertex. Since
+					the noise function uses perlin noise this created consitant slopes for the mountain which I was very
+					pleased about.
+					Finally was the snow which was a good bit more difficult. I searched around for a bit and found the
+					loadPixels which would give me the array of all pixels by RGBA values.
+					I could then test if a pixel above a certain height on the screen was the color of the mountain
+					range and if it was, change it to white so it looks like snow just on the peaks.
+					There is also an extra bit of noise so it's not just a straight line across the screen and instead
+					appears more natural.
+				</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Reflection</h2>
-				<p>Each person that worked on the code should reflect on the process, the difficulties, and the successes of the experiment.</p>
+				<p>I had a lot of fun with this project. I got to experiment and mess around with p5 js which made me
+					want to push my limits a bit. I don't think I did anything crazy but I was happy about my use of
+					noise and my ability to create something that looked somewhat close to my starting image (if I
+					squint really really really hard).
+				</p>
 			</div>
 
 		</section>
 		<nav id="links" class="minor-section">
 			<!-- Put link back to homepage here. -->
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-            </ul>
+			<ul>
+				<li><a href="../index.html">Home</a></li>
+			</ul>
 		</nav>
 	</main>
 </body>
+
 </html>
