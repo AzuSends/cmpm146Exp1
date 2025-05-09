@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- This title is used for tabs and bookmarks -->
+	<title>Experiment 5 - Evolutionary Impressions</title>
+
+	<!-- Use UTF character set, a good idea with any webpage -->
+	<meta charset="UTF-8" />
+	<!-- Set viewport so page remains consistently scaled w narrow devices -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- Include CSS file, including a site-wide CSS and for this particular page -->
+	<link rel="stylesheet" type="text/css" href="../css/site.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<!-- Load jQuery library -->
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+		integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+	<!-- Load p5.js library -->
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.9.2/lib/p5.js"></script>
+
+	<!-- Link to javascript files - DEFER waits until all elements are rendered -->
+	<script type="text/javascript" src="../js/site.js" DEFER></script>
+	<!-- Use me for a JavaScript OOP Project -->
+	<script type="text/javascript" src="./js/sketch.js" DEFER></script>
+	<!-- Use me for a p5.js project -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js"
+		integrity="sha512-b/htz6gIyFi3dwSoZ0Uv3cuv3Ony7EeKkacgrcVg8CMzu90n777qveu0PBcbZUA7TzyENGtU+qZRuFAkfqgyoQ=="
+		crossorigin="anonymous"></script>
+	<script src="js/my_design.js" defer></script>
+</head>
+
+<body>
+	<!-- Style this page by changing the CSS in ../css/site.css or css/experiment.css -->
+	<main id="content">
+		<section>
+
+			<h1>Experiment 5 - Evolutionary Impressions</h1>
+
+			<select id="dropper"></select>
+			<button id="restart">
+				restart
+			</button>
+			<p>
+				Mutation rate (<span id="rate"></span>%):<br /><input id="slider" type="range" min="1" max="100"
+					value="100" />
+			</p>
+			<p id="active"></p>
+			<p>Active score: <span id="activeScore"></span></p>
+			<p>Exploration rate: <span id="fpsCounter"></span> fps</p>
+			<p id="best"></p>
+			<p>Best score: <span id="bestScore"></span></p>
+			<p id="memory" data-max-items="16"></p>
+			<img id="img" src="" alt="">
+
+
+			<div class="minor-section">
+				<h2>Description</h2>
+				<p>Iterative approach using the same gauassion for randomization. I opted to try evaluating differnt
+					types of changes indepenently to get a consistently higher score, but I had to improve the
+					evaluation function and minimize the draw calls to get the
+					results you see above.
+				</p>
+			</div>
+
+			<div class="minor-section">
+				<h2>Technical</h2>
+				<p> Gonna just kinda list off the stuff I did. Made all images greyscale to minimize pixel evaluations.
+					Majority of draws are done to a graphics buffer to avoid long expensive draw calls.
+					only changed one variable at a time, I.E. only testing random changes to opacity, or color.
+					Occasionally changing the bounds on the gauassion to bias either higher or lower.
+					Selecting random subsets of circles and only changing those at any given time.
+				</p>
+			</div>
+
+			<div class="minor-section">
+				<h2>Reflection</h2>
+				<p>I had a lot of fun thinking of different ways to improve the program, either through more efficient
+					code, or more simply an approch that would lead to consistently better
+					scores. I'm very happy with how mine came out. It seems very good at low detail stuff but even with
+					a higher detail image it does a great job breaking down features.
+				</p>
+			</div>
+
+		</section>
+		<nav id="links" class="minor-section">
+			<!-- Put link back to homepage here. -->
+			<ul>
+				<li><a href="../index.html">Home</a></li>
+			</ul>
+		</nav>
+	</main>
+</body>
+
+</html>
